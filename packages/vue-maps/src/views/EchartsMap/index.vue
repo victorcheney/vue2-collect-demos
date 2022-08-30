@@ -1,6 +1,11 @@
 <template>
   <div class="map-container">
-    <button @click="handleClick('china', chinaGeojson)">中国</button>
+    <button
+      class="m-20 hover:text-gray-900"
+      @click="handleClick('china', chinaGeojson)"
+    >
+      中国
+    </button>
     <button @click="handleClick('russia', rusGeojson)">俄罗斯</button>
     <button @click="handleClick('brazil', braGeojson)">巴西</button>
     <button @click="handleClick('india', indGeojson)">印度</button>
