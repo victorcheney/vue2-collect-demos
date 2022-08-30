@@ -51,40 +51,9 @@ importers:
 
   packages/vue-maps:
     specifiers:
-      '@vue/cli-plugin-babel': ~4.5.13
-      '@vue/cli-plugin-eslint': ~4.5.13
-      '@vue/cli-plugin-router': ~4.5.13
-      '@vue/cli-plugin-vuex': ~4.5.13
-      '@vue/cli-service': ~4.5.13
-      '@vue/eslint-config-prettier': ^6.0.0
-      babel-eslint: ^10.1.0
-      core-js: ^3.6.5
-      eslint: ^6.7.2
-      eslint-plugin-prettier: ^3.3.1
-      eslint-plugin-vue: ^6.2.2
-      prettier: ^2.2.1
-      vue: ^2.6.11
-      vue-router: ^3.2.0
-      vue-template-compiler: ^2.6.11
-      vuex: ^3.4.0
+      echarts: ^5.3.3
     dependencies:
-      core-js: registry.npmjs.org/core-js/3.25.0
-      vue: registry.npmjs.org/vue/2.7.10
-      vue-router: registry.npmjs.org/vue-router/3.6.4_vue@2.7.10
-      vuex: registry.npmjs.org/vuex/3.6.2_vue@2.7.10
-    devDependencies:
-      '@vue/cli-plugin-babel': registry.npmjs.org/@vue/cli-plugin-babel/4.5.19_akjmzrauofhfgs3vcqzo2mt42m
-      '@vue/cli-plugin-eslint': registry.npmjs.org/@vue/cli-plugin-eslint/4.5.19_fepo2kslcuyry2fkxxpiwlhxb4
-      '@vue/cli-plugin-router': registry.npmjs.org/@vue/cli-plugin-router/4.5.19_@vue+cli-service@4.5.19
-      '@vue/cli-plugin-vuex': registry.npmjs.org/@vue/cli-plugin-vuex/4.5.19_@vue+cli-service@4.5.19
-      '@vue/cli-service': registry.npmjs.org/@vue/cli-service/4.5.19_42puyn3dcxirnpdjnosl7pbb6a
-      '@vue/eslint-config-prettier': registry.npmjs.org/@vue/eslint-config-prettier/6.0.0_27nv2vfa7637uo5vfpd5tdence
-      babel-eslint: registry.npmjs.org/babel-eslint/10.1.0_eslint@6.8.0
-      eslint: registry.npmjs.org/eslint/6.8.0
-      eslint-plugin-prettier: registry.npmjs.org/eslint-plugin-prettier/3.4.1_z3t5winqgas25x6qp2elb4naby
-      eslint-plugin-vue: registry.npmjs.org/eslint-plugin-vue/6.2.2_eslint@6.8.0
-      prettier: registry.npmjs.org/prettier/2.7.1
-      vue-template-compiler: registry.npmjs.org/vue-template-compiler/2.7.10
+      echarts: registry.npmjs.org/echarts/5.3.3
 
 packages:
 
@@ -5574,6 +5543,15 @@ packages:
       safer-buffer: registry.npmjs.org/safer-buffer/2.1.2
     dev: true
 
+  registry.npmjs.org/echarts/5.3.3:
+    resolution: {integrity: sha512-BRw2serInRwO5SIwRviZ6Xgm5Lb7irgz+sLiFMmy/HOaf4SQ+7oYqxKzRHAKp4xHQ05AuHw1xvoQWJjDQq/FGw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/echarts/-/echarts-5.3.3.tgz}
+    name: echarts
+    version: 5.3.3
+    dependencies:
+      tslib: registry.npmjs.org/tslib/2.3.0
+      zrender: registry.npmjs.org/zrender/5.3.2
+    dev: false
+
   registry.npmjs.org/ee-first/1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz}
     name: ee-first
@@ -5819,25 +5797,6 @@ packages:
     dependencies:
       eslint: registry.npmjs.org/eslint/6.8.0
       eslint-config-prettier: registry.npmjs.org/eslint-config-prettier/8.5.0_eslint@6.8.0
-      prettier: registry.npmjs.org/prettier/2.7.1
-      prettier-linter-helpers: registry.npmjs.org/prettier-linter-helpers/1.0.0
-    dev: true
-
-  registry.npmjs.org/eslint-plugin-prettier/3.4.1_z3t5winqgas25x6qp2elb4naby:
-    resolution: {integrity: sha512-htg25EUYUeIhKHXjOinK4BgCcDwtLHjqaxCDsMy5nbnUMkKFvIhMVCp+5GFUXQ4Nr8lBsPqtGAqBenbpFqAA2g==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/eslint-plugin-prettier/-/eslint-plugin-prettier-3.4.1.tgz}
-    id: registry.npmjs.org/eslint-plugin-prettier/3.4.1
-    name: eslint-plugin-prettier
-    version: 3.4.1
-    engines: {node: '>=6.0.0'}
-    peerDependencies:
-      eslint: '>=5.0.0'
-      eslint-config-prettier: '*'
-      prettier: '>=1.13.0'
-    peerDependenciesMeta:
-      eslint-config-prettier:
-        optional: true
-    dependencies:
-      eslint: registry.npmjs.org/eslint/6.8.0
       prettier: registry.npmjs.org/prettier/2.7.1
       prettier-linter-helpers: registry.npmjs.org/prettier-linter-helpers/1.0.0
     dev: true
@@ -12154,6 +12113,12 @@ packages:
     name: tslib
     version: 1.14.1
 
+  registry.npmjs.org/tslib/2.3.0:
+    resolution: {integrity: sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/tslib/-/tslib-2.3.0.tgz}
+    name: tslib
+    version: 2.3.0
+    dev: false
+
   registry.npmjs.org/tslib/2.4.0:
     resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/tslib/-/tslib-2.4.0.tgz}
     name: tslib
@@ -13249,3 +13214,11 @@ packages:
       normalize-path: registry.npmjs.org/normalize-path/1.0.0
       strip-indent: registry.npmjs.org/strip-indent/2.0.0
     dev: true
+
+  registry.npmjs.org/zrender/5.3.2:
+    resolution: {integrity: sha512-8IiYdfwHj2rx0UeIGZGGU4WEVSDEdeVCaIg/fomejg1Xu6OifAL1GVzIPHg2D+MyUkbNgPWji90t0a8IDk+39w==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/zrender/-/zrender-5.3.2.tgz}
+    name: zrender
+    version: 5.3.2
+    dependencies:
+      tslib: registry.npmjs.org/tslib/2.3.0
+    dev: false
