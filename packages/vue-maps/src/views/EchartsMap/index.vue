@@ -1,15 +1,15 @@
 <template>
-  <div class="map-container">
+  <div class="map-container p-2">
     <button
-      class="m-20 hover:text-gray-900"
-      @click="handleClick('china', chinaGeojson)"
+      v-for="item in countryList"
+      :key="item.type"
+      class="mx-1 bg-blue-300 px-1 text-white rounded cursor-pointer hover:bg-blue-500"
+      :class="{ 'bg-blue-500': currentCountry === item.type }"
+      @click="handleClick(item.type, item.json)"
     >
-      中国
+      {{ item.name }}
     </button>
-    <button @click="handleClick('russia', rusGeojson)">俄罗斯</button>
-    <button @click="handleClick('brazil', braGeojson)">巴西</button>
-    <button @click="handleClick('india', indGeojson)">印度</button>
-    <button @click="handleClick('south-africa', zafGeojson)">南非</button>
+
     <BaseChart
       :options="options"
       height="100%"
@@ -21,11 +21,7 @@
 <script>
 import { generateMapOption } from '@/components/BaseChart/options/map.js'
 import BaseChart from '@/components/BaseChart/index.vue'
-const chinaGeojson = require('../../../public/geojson/china/china.json')
-const rusGeojson = require('../../../public/geojson/russia/russia.simple.json')
-const braGeojson = require('../../../public/geojson/brazil/brazil.simple.json')
-const indGeojson = require('../../../public/geojson/india/india.simple.json')
-const zafGeojson = require('../../../public/geojson/south-africa/south-africa.json')
+import { countryList } from './index'
 
 export default {
   name: 'EchartMapDemo',
@@ -33,25 +29,27 @@ export default {
   components: { BaseChart },
   data() {
     return {
-      chinaGeojson,
-      rusGeojson,
-      braGeojson,
-      indGeojson,
-      zafGeojson,
+      countryList,
       options: Object.assign({}),
+      currentCountry: '',
     }
   },
   computed: {},
   watch: {},
   created() {},
   mounted() {
-    this.handleClick('india', indGeojson)
+    const { type, json } = this.countryList[0]
+    this.handleClick(type, json)
   },
   methods: {
     onHandleClick(params) {
       console.log(params)
     },
     handleClick(type, json) {
+      if (this.currentCountry === type) {
+        return
+      }
+      this.currentCountry = type
       const option = {}
       this.options = generateMapOption(
         [],

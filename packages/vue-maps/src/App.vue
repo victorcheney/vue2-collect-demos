@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <div id="nav" class="border-b p-4">
       <router-link to="/">Home</router-link>
       |
       <router-link to="/echartmap">EchartMap</router-link>
@@ -16,10 +16,6 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
 }
 
 #nav a {
