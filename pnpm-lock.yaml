@@ -55,8 +55,10 @@ importers:
       echarts: ^5.3.3
       postcss: ^7
       tailwindcss: npm:@tailwindcss/postcss7-compat@^2.2.17
+      vue-i18n: 8.27.2
     dependencies:
       echarts: registry.npmjs.org/echarts/5.3.3
+      vue-i18n: registry.npmjs.org/vue-i18n/8.27.2
     devDependencies:
       autoprefixer: registry.npmjs.org/autoprefixer/9.8.8
       postcss: registry.npmjs.org/postcss/7.0.39
@@ -12899,6 +12901,14 @@ packages:
     name: vue-hot-reload-api
     version: 2.3.4
     dev: true
+
+  registry.npmjs.org/vue-i18n/8.27.2:
+    resolution: {integrity: sha512-QVzn7u2WVH8F7eSKIM00lujC7x1mnuGPaTnDTmB01Hd709jDtB9kYtBqM+MWmp5AJRx3gnqAdZbee9MelqwFBg==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/vue-i18n/-/vue-i18n-8.27.2.tgz}
+    name: vue-i18n
+    version: 8.27.2
+    peerDependencies:
+      vue: ^2
+    dev: false
 
   registry.npmjs.org/vue-loader/15.10.0_geeguvfn2njjaew5w23blzhalq:
     resolution: {integrity: sha512-VU6tuO8eKajrFeBzMssFUP9SvakEeeSi1BxdTH5o3+1yUyrldp8IERkSdXlMI2t4kxF2sqYUDsQY+WJBxzBmZg==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/vue-loader/-/vue-loader-15.10.0.tgz}

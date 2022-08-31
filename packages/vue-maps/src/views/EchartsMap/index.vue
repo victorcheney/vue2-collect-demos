@@ -5,9 +5,9 @@
       :key="item.type"
       class="mx-1 bg-blue-300 px-1 text-white rounded cursor-pointer hover:bg-blue-500"
       :class="{ 'bg-blue-500': currentCountry === item.type }"
-      @click="handleClick(item.type, item.json)"
+      @click="handleClick(item.type, item.json, 'button')"
     >
-      {{ item.name }}
+      {{ $t(item.name) }}
     </button>
 
     <BaseChart
@@ -32,10 +32,15 @@ export default {
       countryList,
       options: Object.assign({}),
       currentCountry: '',
+      currentJSON: '',
     }
   },
   computed: {},
-  watch: {},
+  watch: {
+    '$i18n.locale'() {
+      this.handleClick(this.currentCountry, this.currentJSON)
+    },
+  },
   created() {},
   mounted() {
     const { type, json } = this.countryList[0]
@@ -45,8 +50,9 @@ export default {
     onHandleClick(params) {
       console.log(params)
     },
-    handleClick(type, json) {
-      if (this.currentCountry === type) {
+    handleClick(type, json, trigger) {
+      this.currentJSON = json
+      if (trigger === 'button' && this.currentCountry === type) {
         return
       }
       this.currentCountry = type
@@ -54,7 +60,8 @@ export default {
       this.options = generateMapOption(
         [],
         { ...option },
-        { mapType: type, geojson: json }
+        { mapType: type, geojson: json },
+        this.$i18n.locale
       )
     },
   },

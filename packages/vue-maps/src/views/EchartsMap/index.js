@@ -6,31 +6,31 @@ const southAfrica = require('../../../public/geojson/south-africa/south-africa.j
 
 export const countryList = [
   {
-    name: '中国',
+    name: 'map.china',
     type: 'china',
     json: china,
     center: [104.195397, 35.86166],
   },
   {
-    name: '俄罗斯',
+    name: 'map.russia',
     type: 'russia',
     json: russia,
     center: [105.318756, 61.52401],
   },
   {
-    name: '巴西',
+    name: 'map.brazil',
     type: 'brazil',
     json: brazil,
     center: [-51.92528, -14.235004],
   },
   {
-    name: '印度',
+    name: 'map.india',
     type: 'india',
     json: india,
     center: [78.96288, 20.593684],
   },
   {
-    name: '南非',
+    name: 'map.southAfrica',
     type: 'south-africa',
     json: southAfrica,
     center: [22.937506, -30.559482],

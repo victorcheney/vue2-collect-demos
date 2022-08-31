@@ -49,11 +49,7 @@ export const generateMapOption = (data, newOption, geo, lang = 'en') => {
           formatter: params => {
             const { seriesName, name } = params
 
-            if (lang === 'zh') {
-              return seriesName === 'china' ? name : mapLabels[seriesName][name]
-            } else if (lang === 'en') {
-              return seriesName === 'china' ? mapLabels[seriesName][name] : name
-            }
+            return changeNameByLang(seriesName, name, lang)
           },
         },
         // 高亮样式设置
@@ -69,11 +65,14 @@ export const generateMapOption = (data, newOption, geo, lang = 'en') => {
           },
         },
         tooltip: {
-          formatter: function (para) {
-            if (typeof para.data !== 'undefined') {
-              return para.data.name + '：' + para.data.value
+          formatter: function (params) {
+            const { seriesName, name } = params
+
+            const tempName = changeNameByLang(seriesName, name, lang)
+            if (typeof params.data !== 'undefined') {
+              return tempName + '：' + params.data.value
             } else {
-              return para.name
+              return tempName
             }
           },
         },
@@ -89,4 +88,12 @@ export const generateMapOption = (data, newOption, geo, lang = 'en') => {
 
   const options = Object.assign({}, defaultOption, newOption)
   return options
+}
+
+function changeNameByLang(seriesName, name, lang) {
+  if (lang === 'zh') {
+    return seriesName === 'china' ? name : mapLabels[seriesName][name]
+  } else if (lang === 'en') {
+    return seriesName === 'china' ? mapLabels[seriesName][name] : name
+  }
 }
