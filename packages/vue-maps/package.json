@@ -8,7 +8,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@amap/amap-jsapi-loader": "^1.0.1",
     "echarts": "^5.3.3",
+    "echarts-extension-amap": "^1.10.1",
     "vue-i18n": "8.27.2"
   },
   "devDependencies": {

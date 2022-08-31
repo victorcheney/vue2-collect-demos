@@ -18,6 +18,20 @@ const routes = [
         /* webpackChunkName: "EchartsMap" */ '@/views/EchartsMap/index.vue'
       ),
   },
+  {
+    path: '/amap',
+    name: 'AMap',
+    component: () =>
+      import(/* webpackChunkName: "AMap" */ '@/views/AMap/index.vue'),
+  },
+  {
+    path: '/extensionamap',
+    name: 'EchartsExtensionAMap',
+    component: () =>
+      import(
+        /* webpackChunkName: "EchartsExtensionAMap" */ '@/views/EchartsExtensionAMap/index.vue'
+      ),
+  },
 ]
 
 const router = new VueRouter({

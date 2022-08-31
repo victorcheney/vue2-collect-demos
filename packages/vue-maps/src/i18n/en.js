@@ -2,6 +2,8 @@ const lang = {
   header: {
     home: 'Home',
     map: 'EchartsMap',
+    amap: 'AMap',
+    extensionamap: 'EchartsExtensionAMap',
   },
   map: {
     china: 'China',

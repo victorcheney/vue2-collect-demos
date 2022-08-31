@@ -4,6 +4,12 @@
       <router-link to="/">{{ $t('header.home') }}</router-link>
       |
       <router-link to="/echartmap">{{ $t('header.map') }}</router-link>
+      |
+      <router-link to="/amap">{{ $t('header.amap') }}</router-link>
+      |
+      <router-link to="/extensionamap">{{
+        $t('header.extensionamap')
+      }}</router-link>
       <button class="float-right" @click="changeLang">{{ langText }}</button>
     </div>
     <router-view />
@@ -29,12 +35,19 @@ export default {
 </script>
 
 <style>
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height: calc(100% - 57px);
 }
 
 #nav a {
