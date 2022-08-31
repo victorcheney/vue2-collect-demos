@@ -6,7 +6,8 @@ const app = new Koa()
 const respDurationMiddleware = require('./middleware/koa_response_duration')
 app.use(respDurationMiddleware)
 // 第二层中间件
-
+const respHeaderMiddleware = require('./middleware/koa_response_header')
+app.use(respHeaderMiddleware)
 // 第三层中间件
 
 // 3.绑定端口号
