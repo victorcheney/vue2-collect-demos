@@ -1,7 +1,5 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-  </div>
+  <div class="home">111</div>
 </template>
 
 <script>
@@ -10,5 +8,23 @@
 export default {
   name: 'Home',
   components: {},
+  created() {
+    this.$socket.registerCallback('seller', this.getData)
+  },
+  mounted() {
+    console.log('000')
+    const msg = {
+      action: 'GET_DATA',
+      socketType: 'seller',
+      chartName: 'seller',
+      value: '',
+    }
+    this.$socket.send(msg)
+  },
+  methods: {
+    getData(data) {
+      console.log(data)
+    },
+  },
 }
 </script>

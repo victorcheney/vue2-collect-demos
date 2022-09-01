@@ -55,7 +55,7 @@ class SocketService {
     // 得到服务器发送过来的数据
     this.ws.onmessage = msg => {
       console.log('从服务器获取到数据：', msg.data)
-      const recvData = msg.data
+      const recvData = JSON.parse(msg.data)
       const { socketType, action } = recvData
       // 判断sockettype是否存在
       if (this.callbackMapping[socketType]) {
@@ -81,6 +81,7 @@ class SocketService {
 
   // 定义发送数据的方法
   send(data = {}) {
+    console.log('发送：', JSON.stringify(data))
     if (this.connected) {
       this.ws.send(JSON.stringify(data))
       this.retryCount = 0
