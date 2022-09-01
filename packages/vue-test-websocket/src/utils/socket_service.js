@@ -11,7 +11,17 @@ class SocketService {
   // socket对象
   ws = null
 
+  // 存储回调函数
   callbackMapping = {}
+
+  // 服务连接状态
+  connected = false
+
+  // 重新发送尝试的次数
+  retryCount = 0
+
+  // 重新连接尝试的次数
+  connectRetryCount = 0
 
   /**
    * 连接socket服务
@@ -26,11 +36,22 @@ class SocketService {
     // 连接成功事件
     this.ws.onopen = () => {
       console.log('连接服务器成功')
+      this.connected = true
+      // 重置
+      this.connectRetryCount = 0
     }
-    // 连接成功事件
+
+    // 1.连接服务器失败
+    // 2.当连接成功后，服务器关闭的情况
     this.ws.onclose = () => {
       console.log('连接服务器失败')
+      this.connected = false
+      this.connectRetryCount++
+      setTimeout(() => {
+        this.connect()
+      }, 500 * this.connectRetryCount)
     }
+
     // 得到服务器发送过来的数据
     this.ws.onmessage = msg => {
       console.log('从服务器获取到数据：', msg.data)
@@ -60,7 +81,16 @@ class SocketService {
 
   // 定义发送数据的方法
   send(data = {}) {
-    this.ws.send(JSON.stringify(data))
+    if (this.connected) {
+      this.ws.send(JSON.stringify(data))
+      this.retryCount = 0
+    } else {
+      this.retryCount++
+      // 延时重新发送
+      setTimeout(() => {
+        this.ws.send(JSON.stringify(data))
+      }, 500 * this.retryCount)
+    }
   }
 }
 
