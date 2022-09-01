@@ -15,20 +15,6 @@ app.use(respDataMiddleware)
 app.listen(3000)
 console.log('服务已启动', 'http://localhost:3000')
 
-const WebSocket = require('ws')
-// 创建websocket服务端对象
-const wss = new WebSocket.Server({
-  port: 5000,
-})
-// 对客户端连接事件进行监听
-// client: 代表客户端的连接socket对象
-wss.on('connection', client => {
-  console.log('客户端连接成功...')
-  // 监听结束消息事件
-  // msg: 前端发送的message消息
-  client.on('message', msg => {
-    console.log(`接收到消息${msg}`)
-    // 向客户端发送消息
-    client.send('hello socket from backend')
-  })
-})
+const websocketService = require('./service/websocket_service')
+// 开启服务端监听
+websocketService.listen()

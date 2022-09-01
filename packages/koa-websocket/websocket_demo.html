@@ -35,7 +35,14 @@
         }
       }
       sendDom.onclick = function () {
-        ws.send('hello socket from backend')
+        ws.send(
+          JSON.stringify({
+            action: 'FULL_SCREEN', // GET_DATA
+            socketType: 'sellerData',
+            chartName: 'seller',
+            value: 'true',
+          })
+        )
       }
     </script>
   </body>
