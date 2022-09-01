@@ -29,6 +29,6 @@ wss.on('connection', client => {
   client.on('message', msg => {
     console.log(`接收到消息${msg}`)
     // 向客户端发送消息
-    client.send('hello socket')
+    client.send('hello socket from backend')
   })
 })
