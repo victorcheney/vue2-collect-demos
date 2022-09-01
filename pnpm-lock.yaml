@@ -52,8 +52,10 @@ importers:
   packages/koa-websocket:
     specifiers:
       koa: ^2.13.4
+      ws: ^8.8.1
     dependencies:
       koa: registry.npmjs.org/koa/2.13.4
+      ws: registry.npmjs.org/ws/8.8.1
 
   packages/vue-maps:
     specifiers:
@@ -13553,6 +13555,21 @@ packages:
     dependencies:
       async-limiter: registry.npmjs.org/async-limiter/1.0.1
     dev: true
+
+  registry.npmjs.org/ws/8.8.1:
+    resolution: {integrity: sha512-bGy2JzvzkPowEJV++hF07hAD6niYSr0JzBNo/J29WsB57A2r7Wlc1UFcTR9IzrPvuNVO4B8LGqF8qcpsVOhJCA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/ws/-/ws-8.8.1.tgz}
+    name: ws
+    version: 8.8.1
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: ^5.0.2
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+    dev: false
 
   registry.npmjs.org/xtend/4.0.2:
     resolution: {integrity: sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/xtend/-/xtend-4.0.2.tgz}
