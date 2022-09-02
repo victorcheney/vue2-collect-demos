@@ -25,6 +25,10 @@ module.exports.listen = () => {
         // 在接收的数据基础上增加一个data属性，对应的值为读取json的数据
         payload.data = rst
         client.send(JSON.stringify(payload))
+      } else if (action === 'INTERACT') {
+        wss.clients.forEach(client => {
+          client.send(JSON.stringify(JSON.parse(msg)))
+        })
       } else {
         // 原封不动将所接收到的数据转发给每一个连接的客户端
         wss.clients.forEach(client => {
