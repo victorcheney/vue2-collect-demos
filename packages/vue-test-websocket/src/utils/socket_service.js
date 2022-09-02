@@ -66,6 +66,22 @@ class SocketService {
           console.log(action)
         }
       }
+      // 图表交互
+      if (action === 'INTERACT') {
+        Object.values(this.callbackMapping).forEach(widget => {
+          const recvParams = recvData.params
+          // 图表对象设置互动参数
+          recvParams.forEach(item => {
+            widget.params.forEach(wItem => {
+              if (item.shareCode === wItem.shareCode) {
+                wItem.value = item.value
+              }
+            })
+          })
+
+          widget.loadData()
+        })
+      }
     }
   }
 
