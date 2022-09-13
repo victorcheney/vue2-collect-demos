@@ -2,16 +2,16 @@ import store from '@/store/index.js'
 import axios from 'axios'
 import qs from 'qs'
 import { EChartsWidget } from '../../model/Widget'
-import { generateBarOption } from '../BaseChart/options/bar'
+import { generateLineOption } from '../BaseChart/options/line'
 
-export default class BasicBar extends EChartsWidget {
+export default class BasicLine extends EChartsWidget {
   constructor() {
-    super('BasicBar')
+    super('BasicLine')
 
     this.loadData()
   }
 
-  config = generateBarOption([])
+  config = generateLineOption([])
 
   params = [
     {
@@ -37,19 +37,13 @@ export default class BasicBar extends EChartsWidget {
     param = qs.stringify(param)
 
     const rst = await axios.get(`http://localhost:3000/api/seller?${param}`)
-    /* const rst = await axios.post(
-      'http://localhost:3000/api/seller',
-      qs.stringify({
-        limit: 3,
-      })
-    ) */
     const { data } = rst
-    this.config = generateBarOption(data)
+    this.config = generateLineOption(data)
 
     store.dispatch('setApiParams', {
       ...store.state.apiParams,
       ...{
-        [`bar_${this.id}`]: tempParam,
+        [`line_${this.id}`]: tempParam,
       },
     })
   }

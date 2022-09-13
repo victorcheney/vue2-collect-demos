@@ -6,7 +6,7 @@ export class BaseWidget {
   type
 
   // 属性
-  attrs = { width: 500, height: 300 }
+  attrs = { width: 400, height: 300 }
 
   constructor(name, attrs = {}) {
     this.id = nanoid()

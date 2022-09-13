@@ -5,7 +5,7 @@
  * @param {Object} geo e.g.{geo: 'china', geojson: ''}
  * @returns
  */
-export const generateBarOption = (data, newOption = {}) => {
+export const generateLineOption = (data, newOption = {}) => {
   const defaultOption = {
     loadCom: true,
     global: {
@@ -244,8 +244,7 @@ export const generateBarOption = (data, newOption = {}) => {
     series: [
       {
         data: data.map(item => item.value),
-        type: 'bar',
-        barWidth: 30,
+        type: 'line',
       },
     ],
     animation: {

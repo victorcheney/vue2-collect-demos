@@ -1,3 +1,5 @@
+import store from '@/store/index.js'
+
 class SocketService {
   // socket实例，单例模式
   static instance = null
@@ -57,6 +59,7 @@ class SocketService {
       console.log('从服务器获取到数据：', msg.data)
       const recvData = JSON.parse(msg.data)
       const { socketType, action } = recvData
+      store.dispatch('setRecvMsg', recvData)
       // 判断sockettype是否存在
       if (this.callbackMapping[socketType]) {
         if (action === 'GET_DATA') {
@@ -68,8 +71,8 @@ class SocketService {
       }
       // 图表交互
       if (action === 'INTERACT') {
+        const recvParams = recvData.params
         Object.values(this.callbackMapping).forEach(widget => {
-          const recvParams = recvData.params
           // 图表对象设置互动参数
           recvParams.forEach(item => {
             widget.params.forEach(wItem => {
